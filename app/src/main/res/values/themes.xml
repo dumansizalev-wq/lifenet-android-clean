@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Lifenet.Premium" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/night_blue</item>
+        <item name="colorPrimaryVariant">@color/dark_burgundy</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <!-- Status Bar & Navigation Bar -->
+        <item name="android:statusBarColor">@color/lifenet_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/lifenet_bg</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        
+        <!-- Window Background -->
+        <item name="android:windowBackground">@color/lifenet_bg</item>
+    </style>
+</resources>

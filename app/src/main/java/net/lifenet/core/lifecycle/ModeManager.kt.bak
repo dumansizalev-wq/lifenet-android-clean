@@ -1,0 +1,125 @@
+package net.lifenet.core.lifecycle
+
+import android.util.Log
+import net.lifenet.core.mesh.engine.MetricCollector
+
+/**
+ * ModeManager: LIFENET'in iki operasyonel modu arasında geçiş yapar.
+ * DAILY: Enerji tasarrufu, temel özellikler
+ * DISASTER: Tam kapasite, tüm dayanıklılık özellikleri aktif
+ */
+enum class LifeNetMode {
+    DAILY,
+    DISASTER
+}
+
+/**
+ * Mod değişikliklerini dinlemek için interface.
+ */
+interface ModeChangeListener {
+    fun onModeChanged(newMode: LifeNetMode, oldMode: LifeNetMode)
+}
+
+class ModeManager {
+    var currentMode: LifeNetMode = LifeNetMode.DAILY
+        private set
+    
+    private val listeners = mutableListOf<ModeChangeListener>()
+    
+    private var lastNetworkSignalTime: Long = System.currentTimeMillis()
+    private val DISASTER_TRIGGER_TIMEOUT_MS = 5 * 60 * 1000L // 5 dakika
+
+    /**
+     * Ağ durumunu kontrol eder ve gerekirse otomatik mod geçişi yapar.
+     */
+    fun checkNetworkAndSwitch(isNetworkAvailable: Boolean) {
+        if (isNetworkAvailable) {
+            lastNetworkSignalTime = System.currentTimeMillis()
+            // Ağ geri geldiyse ve DISASTER modundaysak, DAILY'ye dön
+            if (currentMode == LifeNetMode.DISASTER) {
+                switchToDailyMode()
+            }
+        } else {
+            val timeSinceLastSignal = System.currentTimeMillis() - lastNetworkSignalTime
+            if (timeSinceLastSignal > DISASTER_TRIGGER_TIMEOUT_MS && currentMode == LifeNetMode.DAILY) {
+                switchToDisasterMode()
+            }
+        }
+    }
+
+    /**
+     * Listener ekle
+     */
+    fun addModeChangeListener(listener: ModeChangeListener) {
+        if (!listeners.contains(listener)) {
+            listeners.add(listener)
+        }
+    }
+    
+    /**
+     * Listener kaldır
+     */
+    fun removeModeChangeListener(listener: ModeChangeListener) {
+        listeners.remove(listener)
+    }
+    
+    /**
+     * Tüm listener'lara mod değişikliğini bildir
+     */
+    private fun notifyModeChange(newMode: LifeNetMode, oldMode: LifeNetMode) {
+        listeners.forEach { listener ->
+            try {
+                listener.onModeChanged(newMode, oldMode)
+            } catch (e: Exception) {
+                Log.e("LIFENET", "ModeManager: Error notifying listener", e)
+            }
+        }
+    }
+
+    /**
+     * Manuel mod geçişi (UI veya test için)
+     */
+    fun switchToDisasterMode() {
+        if (currentMode == LifeNetMode.DISASTER) return
+        
+        val oldMode = currentMode
+        currentMode = LifeNetMode.DISASTER
+        activateDisasterFeatures()
+        MetricCollector.incrementModeSwitchCount()
+        notifyModeChange(currentMode, oldMode)
+        Log.w("LIFENET", "ModeManager: DISASTER MODE ACTIVATED")
+    }
+
+    fun switchToDailyMode() {
+        if (currentMode == LifeNetMode.DAILY) return
+        
+        val oldMode = currentMode
+        currentMode = LifeNetMode.DAILY
+        activateDailyFeatures()
+        MetricCollector.incrementModeSwitchCount()
+        notifyModeChange(currentMode, oldMode)
+        Log.i("LIFENET", "ModeManager: Daily Mode Activated")
+    }
+
+    private fun activateDisasterFeatures() {
+        // Tüm kritik sistemler aktif:
+        // - Captive Portal: ENABLED
+        // - Minimum Epoch: 500ms
+        // - BLE Scan: Aggressive
+        // - Predictive Routing: ACTIVE
+        // - FEC: ACTIVE
+        Log.i("LIFENET", "Disaster Features: Full Mesh, Portal, FEC, Predictive Routing")
+    }
+
+    private fun activateDailyFeatures() {
+        // Enerji tasarrufu modları:
+        // - Captive Portal: DISABLED
+        // - Epoch: 3-5s (Conservative)
+        // - BLE Scan: Reduced frequency
+        // - Predictive Routing: Passive
+        Log.i("LIFENET", "Daily Features: Power-Save Mode, Reduced Scanning")
+    }
+
+    fun isDailyMode(): Boolean = currentMode == LifeNetMode.DAILY
+    fun isDisasterMode(): Boolean = currentMode == LifeNetMode.DISASTER
+}

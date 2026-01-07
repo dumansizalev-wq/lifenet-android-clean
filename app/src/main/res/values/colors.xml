@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- LIFENET 2.0 PREMIUM PALETTE -->
+    <!-- DEEP OBSIDIAN / BLUE BACKGROUNDS -->
+    <color name="glass_obsidian">#FF031122</color> <!-- Almost black, deep blue tint -->
+    <color name="glass_blue_deep">#FF001A33</color> <!-- Rich deep blue for gradients -->
+    <color name="glass_panel_bg">#D9051626</color> <!-- 85% opacity dark blue for panels -->
+    
+    <!-- ACCENTS -->
+    <color name="lifenet_gold">#FFD700</color> <!-- Premium Gold text/icons -->
+    <color name="lifenet_white_dim">#B3FFFFFF</color> <!-- 70% White for secondary text -->
+    
+    <!-- GLASS EFFECTS -->
+    <color name="glass_stroke">#30FFFFFF</color> <!-- Subtle frost border -->
+    <color name="glass_stroke_highlight">#50FFFFFF</color> <!-- Top highlight -->
+    <color name="glass_shadow">#80000000</color> 
+    
+    <!-- STATUS INDICATORS (MUTED/PREMIUM) -->
+    <color name="status_connected">#00E676</color> <!-- Bright but not neon green -->
+    <color name="status_warning">#FFB74D</color> <!-- Amber -->
+    <color name="status_error">#EF5350</color> <!-- Soft Red -->
+
+    <!-- LEGACY / COMPATIBILITY (Mapped to new scheme) -->
+    <color name="night_blue">#03A9F4</color>
+    <color name="dark_burgundy">#800000</color>
+    <color name="gold">#F4D03F</color>
+    <color name="gold_dim">#80D4AF37</color>
+    <color name="lifenet_bg">@color/glass_obsidian</color>
+    <color name="space_red">#B71C1C</color>
+    <color name="space_blue">#03A9F4</color>
+    <color name="secure_green">#00E676</color>
+    <color name="card_bg">#1E1E1E</color>
+    
+    <!-- Premium Gradients -->
+    <color name="emerald_active">#00E676</color>
+    <color name="purple_active">#9C27B0</color>
+    <color name="dark_red">#8B0000</color>
+    <color name="lifenet_gold_gradient_start">#F4D03F</color>
+    <color name="lifenet_gold_gradient_end">#C9A961</color>
+    <color name="card_bg_gradient_start">#2A2A2A</color>
+    <color name="card_bg_gradient_end">#1A1A1A</color>
+    <color name="astra_active_blue">#03A9F4</color>
+    <color name="astra_inactive_grey">#424242</color>
+    
+    <!-- Glassmorphism Tokens -->
+    <color name="glass_white">#20FFFFFF</color>
+    <color name="glass_border">#40FFFFFF</color>
+    <color name="glass_bg_start">#30303030</color>
+    <color name="glass_bg_end">#10101010</color>
+    
+    <!-- Neon Highlights -->
+    <color name="neon_blue">#00E5FF</color>
+    <color name="neon_green">#00FF88</color>
+    <color name="neon_gold">#FFD700</color>
+    <color name="neon_purple">#E040FB</color>
+    <color name="neon_red">#FF1744</color>
+    
+    <!-- Glow Effects -->
+    <color name="glow_green">#6050C878</color>
+    <color name="glow_blue">#601A237E</color>
+    <color name="glow_purple">#609C27B0</color>
+    <color name="glow_gold">#60D4AF37</color>
+    <color name="glow_white">#40FFFFFF</color>
+    <color name="glow_red">#60B71C1C</color>
+</resources>

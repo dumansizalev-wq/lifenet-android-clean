@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/card_background"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:text="🆘"
+        android:textSize="32sp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/alertSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unknown User"
+            android:textColor="#FF5252"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/alertMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EMERGENCY - NEED HELP"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/alertDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📍 Distance: Unknown"
+            android:textColor="#888888"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/alertTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2m ago"
+        android:textColor="#666666"
+        android:textSize="12sp"
+        android:layout_marginStart="8dp"/>
+
+</LinearLayout>

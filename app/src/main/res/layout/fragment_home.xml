@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_premium_gradient">
+
+    <!-- 1. STATUS PANEL (Top) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/statusPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="#00000000"
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_dashboard"
+            app:tint="@color/lifenet_gold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LIFENET SYSTEM"
+            android:textColor="@color/lifenet_gold"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/imgLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ONLINE"
+            android:textColor="@color/status_connected"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 2. ANIMATED VISUAL (Center - Placeholder for Mesh Animation) -->
+    <!-- Using a native View with a gradient or custom drawable for now -->
+    <View
+        android:id="@+id/visualCenter"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:background="@drawable/hub_3d"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/statusPanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 3. GLASS PANELS GRID (Bottom) -->
+    <GridLayout
+        android:id="@+id/gridPanels"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:padding="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/visualCenter"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- PANEL 1: MESH HEALTH -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_glass_card"
+            android:padding="16dp">
+            
+            <ImageView
+                android:id="@+id/imgNetwork"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_network_check"
+                app:tint="@color/lifenet_gold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+                
+            <!-- Tooltip Icon -->
+            <TextView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:text="?"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_circle_glass"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MESH HEALTH"
+                android:textColor="@color/lifenet_white_dim"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgNetwork"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="98%"
+                android:textColor="@color/lifenet_gold"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- PANEL 2: BLE MESH -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_glass_card"
+            android:padding="16dp">
+            
+            <ImageView
+                android:id="@+id/imgBle"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_bluetooth"
+                app:tint="@color/lifenet_gold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+                
+             <TextView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:text="?"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_circle_glass"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BLE MESH"
+                android:textColor="@color/lifenet_white_dim"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgBle"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACTIVE"
+                android:textColor="@color/status_connected"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- PANEL 3: ENCRYPTION -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_glass_card"
+            android:padding="16dp">
+            
+            <ImageView
+                android:id="@+id/imgSec"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_security"
+                app:tint="@color/lifenet_gold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+                
+             <TextView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:text="?"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_circle_glass"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ENCRYPTION"
+                android:textColor="@color/lifenet_white_dim"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgSec"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AES-256"
+                android:textColor="@color/lifenet_gold"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- PANEL 4: AUTONOMOUS -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_glass_card"
+            android:padding="16dp">
+            
+            <ImageView
+                android:id="@+id/imgAuto"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_auto_mode"
+                app:tint="@color/lifenet_gold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+                
+             <TextView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:text="?"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_circle_glass"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AUTONOMOUS"
+                android:textColor="@color/lifenet_white_dim"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgAuto"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STANDBY"
+                android:textColor="@color/lifenet_white_dim"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

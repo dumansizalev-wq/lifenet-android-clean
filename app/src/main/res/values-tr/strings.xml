@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LIFENET V2 PRM</string>
+    <string name="lifenet">LIFENET V2 PRM</string>
+    <string name="connections">BAĞLANTILAR</string>
+    <string name="mesh_analytics_active">MESH ANALİZİ AKTİF</string>
+    
+    <!-- Home Sections -->
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_monitor">İzleme</string>
+    <string name="nav_messages">Mesajlar</string>
+    <string name="nav_nearby">Yakındakiler</string>
+    <string name="nav_sos">SOS</string>
+
+    <!-- Specific Section Titles -->
+    <string name="mesh_monitor">MESH İZLEME</string>
+    <string name="secure_messages">GÜVENLİ MESAJLAR</string>
+    <string name="nearby_devices">YAKINDAKİ CİHAZLAR</string>
+    <string name="sos_emergency">SOS ACİL DURUM</string>
+
+    <!-- UI Labels -->
+    <string name="ble_mesh">BLE MESH</string>
+    <string name="wifi_direct">WI-FI DIRECT</string>
+    <string name="tor">TOR</string>
+    <string name="other">DİĞER</string>
+    <string name="scan_sub">Yakındaki cihazları tara</string>
+    <string name="available_nodes">ELDEKİ NODELAR</string>
+    <string name="pair">EŞLEŞTİR</string>
+    <string name="start_new_chat">YENİ GÜVENLİ SOHBET</string>
+    <string name="broadcast_sos">SOS YAYINLA</string>
+    <string name="sos_desc">Mesh ağındaki tüm yakındaki düğümlere acil durum sinyali gönderin. Bu, alıcı cihazlardaki sessiz modları devre dışı bırakacaktır.</string>
+    <string name="sos_settings">SOS AYARLARI</string>
+
+    <!-- Mode States -->
+    <string name="astra_mode">ASTRA MODU</string>
+    <string name="astra_active">ASTRA AÇIK</string>
+    <string name="astra_inactive">ASTRA KAPALI</string>
+</resources>
